@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "583323043246",
+    "project_id": "panacea-sample-app",
+    "storage_bucket": "panacea-sample-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:583323043246:android:4daf3977c3136cadb8343f",
+        "android_client_info": {
+          "package_name": "com.companyname.panaceaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "583323043246-p7e3n6kp85oc15jb00ru9he0qefihg3r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeXSDGQHwBsVCo8h8R8A5wbAiOssUm4fU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "583323043246-p7e3n6kp85oc15jb00ru9he0qefihg3r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:wtf="clr-namespace:PanaceaApp.ViewModel"
+             x:Class="PanaceaApp.View.UpdatePatient"
+             Padding="10">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <wtf:UpdateVM x:Key="wtfe" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout BindingContext="{StaticResource wtfe}">
+            <StackLayout Orientation="Horizontal">
+            <Label Text="Patient name : " FontSize="25" TextColor="Black" />
+            <Label Text="{Binding PatientName}" VerticalOptions="Center" FontSize="25" TextColor="DodgerBlue" FontAttributes="Bold"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Bed Number : " VerticalOptions="Center" FontSize="23" TextColor="Black"/>
+                <Entry Text="{Binding BedNumber, Mode=TwoWay}" TextColor="Red" HorizontalOptions="StartAndExpand"/>
+            </StackLayout>
+            <Button Text="Update" Command="{Binding UpdateCommand}" CommandParameter="{Binding BedNumber}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

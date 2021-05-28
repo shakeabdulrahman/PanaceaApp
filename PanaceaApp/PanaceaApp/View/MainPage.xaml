@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:behaviors="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:vm="clr-namespace:PanaceaApp.ViewModel"
+             x:Class="PanaceaApp.MainPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="Azure">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:MainVM x:Key="vme" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <StackLayout BindingContext="{StaticResource vme}">
+        <Frame BackgroundColor="HotPink" Padding="24" CornerRadius="0">
+            <Label Text="Welcome to Panacea medicals" HorizontalTextAlignment="Center" TextColor="White" FontSize="20" FontAttributes="Bold"/>
+        </Frame>
+
+        <Label Text="Menu ☟" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="30" TextColor="Black"
+               Margin="0,20,0,0"/>
+
+        <pv:PancakeView HorizontalOptions="Center" VerticalOptions="Start" Margin="0,10,0,0" CornerRadius="30" Padding="10">
+            <pv:PancakeView.BackgroundGradientStops>
+                <pv:GradientStopCollection>
+                    <pv:GradientStop Color="HotPink" Offset="0"/>
+                    <pv:GradientStop Color="LightBlue" Offset="1"/>
+                </pv:GradientStopCollection>
+            </pv:PancakeView.BackgroundGradientStops>
+
+
+
+            <behaviors:Expander  Rotation="180" HorizontalOptions="Start" VerticalOptions="End" >
+                
+                <behaviors:Expander.Header>
+                    <Image  Source="menu3" WidthRequest="100" HeightRequest="30" Rotation="180">
+                        <Image.Triggers>
+                            <DataTrigger  TargetType="Image"
+                                         Binding="{Binding Source={RelativeSource AncestorType={x:Type behaviors:Expander}},Path=IsExpanded}"
+                                         Value="true">
+                                <Setter Property="Source" Value="close"/>
+                            </DataTrigger>
+                        </Image.Triggers>
+                    </Image>
+                </behaviors:Expander.Header>
+                
+                
+                <StackLayout Spacing="40" Margin="0,20" BindingContext="{StaticResource vme}">
+                    <Label Text="Contact" Rotation="180" HorizontalOptions="Center" FontAttributes="Bold" />
+                    <Label Text="Privacy Policy" Rotation="180" HorizontalOptions="Center" FontAttributes="Bold" />
+                    <Label Text="Pending Bills" Rotation="180" HorizontalOptions="Center" FontAttributes="Bold" />
+                    <Label Text="Patients" Rotation="180" HorizontalOptions="Center" FontAttributes="Bold">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GotoPatientlist}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                
+            </behaviors:Expander>
+        </pv:PancakeView>
+
+        <Button Text="Signout" Command="{Binding SignoutCommand}" VerticalOptions="EndAndExpand" Margin="20,0,20,20"/>
+    </StackLayout>
+
+    
+
+</ContentPage>
